@@ -1,7 +1,7 @@
 import path from 'path'
 
-import { FlatCompat } from '@eslint/eslintrc'
 import tsEslint from 'typescript-eslint'
+import { FlatCompat } from '@eslint/eslintrc'
 
 const __dirname = path.dirname(new URL(import.meta.url).pathname)
 

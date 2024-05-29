@@ -1,22 +1,6 @@
 import tsEslint from 'typescript-eslint'
 
 /** @type {import('eslint').Linter.FlatConfig} */
-export default tsEslint.config({
-  name: 'ignores',
-  ignores: [
-    '.DS_Store',
-    'node_modules',
-    'build',
-    '.svelte-kit',
-    'package',
-    '.env',
-    '.env.*',
-    '!.env.example',
-    'android',
-  ],
-})
-
-/** @type {import('eslint').Linter.FlatConfig} */
 export const base = {
   name: 'ignores.base',
   ignores: ['.DS_Store', 'node_modules'],
@@ -48,7 +32,6 @@ export const npm = {
 
 /**
  * @description This is a collection of all package managers
- * @type {import('eslint').Linter.FlatConfig}
  */
 export const packageManagers = tsEslint.config(bun, pnpm, yarn, npm)
 

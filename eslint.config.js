@@ -9,6 +9,6 @@ export default tsEslint.config(
   ...eslint.esm,
   ...eslint.imports,
   eslint.ignores.base,
-  eslint.ignores.packageManagers,
-  eslint.ignores.env
+  eslint.ignores.env,
+  ...eslint.ignores.packageManagers
 )
