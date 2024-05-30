@@ -33,9 +33,9 @@ export default [
 
   // Ignore files
   eslint.ignores.base, // node_modules, .DS_Store
-  eslint.ignores.packageManagers, // NPM, Pnpm, Yarn, Bun
-  ...eslint.ignores.env, // Environment files
-  ...eslint.ignores.svelte, // SvelteKit
+  eslint.ignores.env, // Environment files
+  eslint.ignores.svelte, // SvelteKit
+  ...eslint.ignores.packageManagers, // NPM, Pnpm, Yarn, Bun
 ]
 ```
 
