@@ -1,35 +1,30 @@
-import path from 'path'
-
 import tsEslint from 'typescript-eslint'
-import { FlatCompat } from '@eslint/eslintrc'
+import importX from 'eslint-plugin-import-x'
+import { createNodeResolver } from 'eslint-plugin-import-x'
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript'
 
-const __dirname = path.dirname(new URL(import.meta.url).pathname)
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-})
-
-export default tsEslint.config(
-  ...compat.extends('plugin:import/recommended'), //
-  {
-    name: 'import',
-    rules: {
-      // TODO: Check when this is fixed
-      'import/namespace': 'off',
-      'import/no-named-as-default': 'off',
-      'import/no-named-as-default-member': 'off',
-      'import/no-unresolved': 'off',
-      'import/order': [
-        'error',
-        {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'], //
-          'newlines-between': 'always',
-          alphabetize: {
-            order: 'asc',
-            caseInsensitive: true,
-          },
+export default tsEslint.config({
+  name: 'import-x',
+  plugins: {
+    'import-x': importX,
+  },
+  settings: {
+    'import-x/resolver-next': [createTypeScriptImportResolver(), createNodeResolver()],
+  },
+  rules: {
+    'import-x/no-named-as-default': 'off',
+    'import-x/no-named-as-default-member': 'off',
+    'import-x/no-unresolved': 'off',
+    'import-x/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
         },
-      ],
-    },
-  }
-)
+      },
+    ],
+  },
+})

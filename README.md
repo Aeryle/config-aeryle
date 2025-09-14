@@ -2,6 +2,25 @@
 
 ## Includes ESLint and Prettier configs
 
+## Installation
+
+```bash
+npm install config-aeryle eslint prettier
+```
+
+Or with other package managers:
+
+```bash
+# Yarn
+yarn add config-aeryle eslint prettier
+
+# Pnpm
+pnpm add config-aeryle eslint prettier
+
+# Bun
+bun add config-aeryle eslint prettier
+```
+
 ### Usage in `eslint.config.js`
 
 ```js
